@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const hdbs = require('express-handlebars');
@@ -16,17 +16,18 @@ app.use(express.json());
 app.use(morgan('combined'));
 
 //Template engine
-app.engine('hbs', hdbs.engine({
-  extname: '.hbs'
-}));
+app.engine(
+    'hbs',
+    hdbs.engine({
+        extname: '.hbs',
+    }),
+);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
-
 
 //route init
 route(app);
 
-
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-})
+    console.log(`Example app listening on port ${port}`);
+});
